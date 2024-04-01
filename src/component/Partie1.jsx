@@ -1,31 +1,45 @@
-import React from 'react'
-import "./Partie1.css"
-const Partie1 = () => {
-  return (
-    <div className='section1'>
-    <img src="./Capture.png" alt="profile"  id="photo"/>
-    <h1>MARION <br /> CARISELLE</h1>
-    <h3 className='h3'> ingénieure logiciel </h3>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <h4> Profil</h4>
-    <p>je suis ingénieure logiciel, je crée des <br /> applications trés performantes gràce à <br /> une architecture organisée.j'ai également <br />  de l'expérience dans la conception de produits et la relation clientèle </p>
-    <h4>compétence clés</h4>
-        <li className='cles'>Dévelopement de logiciels et d'architecture</li>
-        <li className='cles'>Optimisation de la performance</li>
-        <li className='cles'>Dépannage et controle de qualité</li>
-        <li className='cles'>Méthode agile</li>
-        <li className='cles'>Dévelopement front-end et back-end</li>
-    <h4> CONTACTEZ-MOI</h4>
-    <p>E-mail: bonjour@sitevraimentsuper.fr</p>
-    <p>Téléphone: 01 23 45 67 89</p>
-    <p>Site web: www.sitevraimentsuper.fr</p>
-    <p>Adresse du bureau: 12,rue blaise pascal,<br /> 75000 Paris</p>
-    </div>
-  )
-}
 
-export default Partie1
+import React, { Component } from 'react'
+import "./Partie1.css"
+
+export default class Partie1 extends Component {
+  state={
+    image:"./Capture.png",
+    name:"MARION CARISELLE",
+    job : "ingénieure logiciel",
+    profil: "Profil",
+    description:"je suis ingénieure logiciel, je crée des  applications trés performantes gràce à  une architecture organisée.j'ai également de l'expérience dans la conception de produits et la relation clientèle",
+    comp:"compétence clés",
+    liste:["Dévelopement de logiciels et d'architecture","Optimisation de la performance","Dépannage et controle de qualité","Méthode agile","Dévelopement front-end et back-end"],
+    contact:"contactez-moi",
+    email:"E-mail: bonjour@sitevraimentsuper.fr",
+    telephone:"Téléphone: 01 23 45 67 89",
+    site:"Site web: www.sitevraimentsuper.fr",
+    adresse:"Adresse du bureau: 12,rue blaise pascal, 75000 Paris",
+  }
+  render() {
+    return (
+      <div className='section1'>
+    <img src={this.state.image} alt="profile"  id="photo"/>
+    <h1> {this.state.name}</h1>
+    <h3 className='h3'> {this.state.job} </h3>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h4>{this.state.profil}</h4>
+    <p> {this.state.description}</p>
+    <h4>{this.state.comp}</h4>
+        {
+          this.state.liste.map(el => <li className='cles'> {el} </li>)
+        }
+    <h4>{this.state.contact}</h4>
+    <p>{this.state.email}</p>
+    <p>{this.state.telephone}</p>
+    <p>{this.state.site}</p>
+    <p>{this.state.adresse}</p>
+    </div>
+    )
+  }
+}

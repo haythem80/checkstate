@@ -1,41 +1,62 @@
-import React from 'react'
+
+import React, { Component } from 'react'
 import "./Partie2.css"
-const Partie2 = () => {
-  return (
-    <React.Fragment>
+
+export default class Partie2 extends Component {
+  state={
+    user1: {
+      exp: "Expérience Professionnelle",
+      travail:"Ingénieure logiciel",
+      lp:"Logiciels Pixel | Septembre 2018 - présent",
+      dev:["Développe des systèmes et des outils qui sont basés sur les perfermance et l'extensibilité","Maintient le schéma de base de données ainsi que les spécifications fonctionnelles et techniques"],
+      tra:"Développeuse de logiciel",
+      labo:"Laboratoires technologiques Numérix | juillet 2017- aout 2018",
+      cv:["A participé tous les aspects d'un project, de la conception en passant par le développement jusqu'aux tests ","A travaillé à la maintenance et aux améliorations des applications existantes"],
+    },
+    user2: {
+      forma:"FORMATION UNIVERSITAIRE",
+      univer:"Université de Condorcet",
+      niveau:"Master en sciences | Septembre 2015 - mai 2017",
+      master:["Master en ingénierie des logiciels","A suivi des cours approfondis sur l'architecture des systèmes et sur la recherche informatique","A participé à des projets de système en entreprise"],
+      ins:"institut des Giles Kahn",
+      licence:"Licence science et technologies | juin 2008 - mai 2013",
+      info:["Licence d'informatique Mention trés Bien","Option: développement des logiciels","Consultante en technologie et développement <br />d'applications,clubs d'entrepeuriat TGI"]
+    },
+    user3:{
+      reference:"Références professionnelles",
+      paragrahe:["Julie Alain,PGD des laboratoires technologiques Numérix <br />E-mail : bonjour@sitevraimentsuper.fr","christian buvin,Professeur à l'Unversité de Condorcet  E-mail : bonjour@sitevraimentsuper.fr"]
+    }
+  };
+  render() {
+    return (
+      <React.Fragment>
     <div className='rep1'>
-      <h1 className='title'> Expérience Professionnelle </h1>
-      <h3 className='title2'> Ingénieure logiciel</h3>
-      <h5 className='title3'> Logiciels Pixel | Septembre 2018 - présent</h5>
-      <li className='li'>Développe des systèmes et des outils qui sont basés <br /> sur les perfermance et l'extensibilité </li>
-      <li className='li'>Maintient le schéma de base de données ainsi que les <br /> spécifications fonctionnelles et techniques  </li>
-      <h3 className='title2'> Développeuse de logiciel </h3>
-      <h5 className='title3'> Laboratoires technologiques Numérix | juillet 2017- aout 2018</h5>
-      <li className='li'>A participé tous les aspects d'un project, de la conception  <br /> en passant par le développement jusqu'aux tests   </li>
-      <li className='li'>A travaillé à la maintenance et aux améliorations des <br /> applications existantes  </li>
+      <h1 className='title'> {this.state.user1.exp} </h1>
+      <h3 className='title2'>{this.state.user1.travail} </h3>
+      <h5 className='title3'>{this.state.user1.lp} </h5>
+      {
+        this.state.user1.dev.map(el => <li className='li'> {el} </li>)
+      }
+      <h3 className='title2'> {this.state.user1.tra} </h3>
+      <h5 className='title3'>{this.state.user1.labo} </h5>
+      {
+        this.state.user1.cv.map(el => <li className='li'> {el} </li>)
+      }
       </div>
       <div className='rep2'>
-      <h1 className='title'> FORMATION UNIVERSITAIRE  </h1>
-      <h3 className='title2'> Université de Condorcet </h3>
-      <h5 className='title3'> Master en sciences | Septembre 2015 - mai 2017 </h5>
-      <li className='li'> Master en ingénierie des logiciels </li>
-      <li className='li'> A suivi des cours approfondis sur l'architecture des <br />systèmes et sur la recherche informatique </li>
-      <li className='li'> A participé à des projets de système en entreprise </li>
-      <h3 className='title2'> institut des Giles Kahn </h3>
-      <h5 className='title3'> Licence science et technologies | juin 2008 - mai 2013 </h5>
-      <li className='li'> Licence d'informatique Mention trés Bien</li>
-      <li className='li'> Option: développement des logiciels</li>
-      <li className='li'> Consultante en technologie et développement <br />d'applications,clubs d'entrepeuriat TGI</li>
+      <h1 className='title'> {this.state.user2.forma} </h1>
+      <h3 className='title2'> {this.state.user2.univer}</h3>
+      <h5 className='title3'> {this.state.user2.niveau} </h5>
+      {this.state.user2.master.map(el => <li className='li'> {el} </li>)}
+      <h3 className='title2'> {this.state.user2.ins} </h3>
+      <h5 className='title3'> {this.state.user2.licence} </h5>
+      {this.state.user2.info.map(el => <li className='li'> {el} </li>)}
       </div>
       <div className='rep3'>
-      <h1 className='titlee'> Références professionnelles </h1>
-      <p className='para'> Julie Alain, <br /> PGD des laboratoires technologiques <br />Numérix <br />E-mail : bonjour@sitevraimentsuper.fr</p>
-      <p className='para'> christian buvin,<br />Professeur à l'Unversité de Condorcet <br /> E-mail : bonjour@sitevraimentsuper.fr </p>
+      <h1 className='titlee'> {this.state.user3.reference} </h1>
+      {this.state.user3.paragrahe.map(el => <li className='li'> {el} </li>)}
       </div>
       </React.Fragment>
-    
-
-  )
+    )
+  }
 }
-
-export default Partie2
